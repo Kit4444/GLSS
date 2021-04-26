@@ -1,0 +1,6 @@
+name: GLSS
+main: at.newt.main.Main
+author: Newt
+version: 1.0.0
+
+commands:
