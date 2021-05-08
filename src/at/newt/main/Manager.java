@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 
+import at.newt.api.APIs;
 import at.newt.command.AFK_CMD;
 import at.newt.command.BuildClass;
 import at.newt.command.CMD_SetID_SetPf;
@@ -96,5 +97,11 @@ public class Manager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ScoreboardCLS sb = new ScoreboardCLS();
+		sb.SBSched(0, 20);
+		APIs api = new APIs();
+		api.loadConfig();
+		api.onLoad();
 	}
 }
