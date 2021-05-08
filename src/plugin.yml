@@ -1,6 +1,31 @@
 name: GLSS
 main: at.newt.main.Main
 author: Newt
-version: 1.0.0
+version: 20210501_0002-0001a
+api-version: 1.16
+description: This is the Core-Plugin of RediCraft.
+website: www.redicraft.eu
+prefix: REDICRAFTCOREPLUGIN
+softdepend:
+- PermissionsEx
 
 commands:
+    afk:
+    build:
+    setid:
+    setpf:
+    money:
+    setmoney:
+    removemoney:
+    addmoney:
+    topmoney:
+    setbankmoney:
+    bankdeposit:
+    bankwithdraw:
+    pay:
+    pinfo:
+    login:
+    logout:
+    togglegroup:
+        aliases: tg
+    
