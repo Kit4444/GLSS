@@ -285,7 +285,7 @@ public class Serverupdater implements Listener{
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
-		File file = new File("plugins/RCLS/ptimecache.yml");
+		File file = new File("plugins/RCGLSS/ptimecache.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -309,7 +309,7 @@ public class Serverupdater implements Listener{
 	public void onQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
 		String uuid = p.getUniqueId().toString().replace("-", "");
-		File file = new File("plugins/RCLS/ptimecache.yml");
+		File file = new File("plugins/RCGLSS/ptimecache.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
