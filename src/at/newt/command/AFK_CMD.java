@@ -9,12 +9,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
 
 import at.newt.api.APIs;
 import at.newt.main.Main;
 import at.newt.mysql.lb.MySQL;
 
-public class AFK_CMD implements CommandExecutor{
+public class AFK_CMD implements CommandExecutor, Listener{
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -32,6 +35,15 @@ public class AFK_CMD implements CommandExecutor{
 			}
 		}
 		return false;
+	}
+	
+	@EventHandler
+	public void onMove(PlayerMoveEvent e) {
+		APIs api = new APIs();
+		if(isAFK(e.getPlayer())) {
+			updateAFK(e.getPlayer(), false);
+			api.sendMSGReady(e.getPlayer(), "cmd.afk.leave");
+		}
 	}
 	
 	private static boolean isAFK(Player p) {
