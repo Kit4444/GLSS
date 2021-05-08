@@ -597,7 +597,7 @@ public class ScoreboardCLS implements Listener{
 		}
 	}
 	
-	int pause = 0;
+	static int pause = 0;
 	
 	public void SBSched(int delay, int sbsched) {
 		new BukkitRunnable() {
