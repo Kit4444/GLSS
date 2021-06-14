@@ -46,7 +46,9 @@ public class Main extends JavaPlugin{
 	public static void setPlayerBar(Player p) {
 		APIs api = new APIs();
 		p.getInventory().clear();
-		p.getInventory().setItem(0, api.defItem(Material.COMPASS, 1, ""));
+		p.getInventory().setItem(2, api.defItem(Material.COMPASS, 1, ""));
+		p.getInventory().setItem(4, api.defItem(Material.COMPASS, 1, ""));
+		p.getInventory().setItem(6, api.defItem(Material.COMPASS, 1, ""));
 	}
 	
 	private void updateOnline(boolean boo) {
