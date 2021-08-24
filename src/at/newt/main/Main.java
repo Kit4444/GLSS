@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,12 +21,13 @@ public class Main extends JavaPlugin{
 	 * I wanted to keep it as two different projects, so nothing bad can happen.
 	 */
 	public static Main instance;
-	public static String mysqlprefix = "§eMySQL §7- ";
+	public static String mysqlprefix = "Â§eMySQL Â§7- ";
 	public static MySQL mysql;
-	public static String consolesend = "§7Please use this ingame.";
+	public static String consolesend = "Â§7Please use this ingame.";
 	
 	public void onEnable() {
 		instance = this;
+		Bukkit.getMessenger().registerOutgoingPluginChannel(instance, "BungeeCord");
 		Manager manager = new Manager();
 		manager.init();
 		updateOnline(true);

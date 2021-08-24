@@ -35,36 +35,36 @@ public class Pinfo implements CommandExecutor {
 							ps.setInt(1, id);
 							ResultSet rs = ps.executeQuery();
 							rs.next();
-							p.sendMessage("§7================[§aPlayerInfo§7]================");
-							p.sendMessage("§7Username: §a" + rs.getString("username"));
-							p.sendMessage("§7UUID: §a" + rs.getString("uuid"));
-							p.sendMessage("§7Custom Prefix:§f " + rs.getString("userprefix"));
-							p.sendMessage("§7Role: §a" + rs.getString("userrank"));
-							p.sendMessage("§7Playtime: §a" + retPTime(rs.getInt("playtime")));
-							p.sendMessage("§7First Join: §a" + rs.getString("firstjoinstring"));
+							p.sendMessage("Â§7================[Â§aPlayerInfoÂ§7]================");
+							p.sendMessage("Â§7Username: Â§a" + rs.getString("username"));
+							p.sendMessage("Â§7UUID: Â§a" + rs.getString("uuid"));
+							p.sendMessage("Â§7Custom Prefix:Â§f " + rs.getString("userprefix"));
+							p.sendMessage("Â§7Role: Â§a" + rs.getString("userrank"));
+							p.sendMessage("Â§7Playtime: Â§a" + retPTime(rs.getInt("playtime")));
+							p.sendMessage("Â§7First Join: Â§a" + rs.getString("firstjoinstring"));
 							switch(rs.getString("language")) {
-								case "en-UK": p.sendMessage("§7Language: §aEnglish"); break;
-								case "de-de": p.sendMessage("§7Language: §aDeutsch"); break;
-								default: p.sendMessage("§7Language: §aunknown Language"); break;
+								case "en-UK": p.sendMessage("Â§7Language: Â§aEnglish"); break;
+								case "de-de": p.sendMessage("Â§7Language: Â§aDeutsch"); break;
+								default: p.sendMessage("Â§7Language: Â§aunknown Language"); break;
 							}
 							if(rs.getBoolean("online")) {
-								p.sendMessage("§7Online: §ayes");
-								p.sendMessage("§7Server: §a" + rs.getString("server"));
+								p.sendMessage("Â§7Online: Â§ayes");
+								p.sendMessage("Â§7Server: Â§a" + rs.getString("server"));
 							}else {
-								p.sendMessage("§7Online: §cno");
+								p.sendMessage("Â§7Online: Â§cno");
 							}
 							if(rs.getBoolean("isstaff")) {
-								p.sendMessage("§7Staff Member: §ayes");
+								p.sendMessage("Â§7Staff Member: Â§ayes");
 							}else {
-								p.sendMessage("§7Staff Member: §cno");
+								p.sendMessage("Â§7Staff Member: Â§cno");
 							}
 							if(p.hasPermission("mlps.canBan")) {
-								p.sendMessage("§7Last Join: §a" + rs.getString("lastjoinstring"));
-								p.sendMessage("§7Money Cash/Bank: §a" + rs.getInt("money") + " §7/§a " + rs.getInt("bankmoney") + " §7Coins");
+								p.sendMessage("Â§7Last Join: Â§a" + rs.getString("lastjoinstring"));
+								p.sendMessage("Â§7Money Cash/Bank: Â§a" + rs.getInt("money") + " Â§7/Â§a " + rs.getInt("bankmoney") + " Â§7Coins");
 							}
 							if(p.hasPermission("*")) {
-								p.sendMessage("§7Firstjoin IP: §a" + rs.getString("firstjoinip"));
-								p.sendMessage("§7Last login IP: §a" + rs.getString("lastloginip"));
+								p.sendMessage("Â§7Firstjoin IP: Â§a" + rs.getString("firstjoinip"));
+								p.sendMessage("Â§7Last login IP: Â§a" + rs.getString("lastloginip"));
 							}
 							rs.close();
 							ps.close();
@@ -76,7 +76,7 @@ public class Pinfo implements CommandExecutor {
 					api.sendMSGReady(p, "cmd.pinfo.onlynumchars");
 				}
 			}else {
-				p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + " §7/pinfo <PlayerID>");
+				p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + " Â§7/pinfo <PlayerID>");
 			}
 		}
 		return false;

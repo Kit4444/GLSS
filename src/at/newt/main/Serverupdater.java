@@ -23,7 +23,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import at.newt.api.APIs;
 import at.newt.mysql.lb.MySQL;
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_16_R3.MinecraftServer;
+import net.minecraft.server.MinecraftServer;
 
 public class Serverupdater implements Listener{
 	
@@ -116,7 +116,7 @@ public class Serverupdater implements Listener{
 				ps.setInt(5, (int) timestamp);
 				ps.setString(6, stime);
 				ps.setInt(7, (int) ramtotal);
-				ps.setString(8, "1.16.5");
+				ps.setString(8, "1.17.1");
 				ps.setString(9, newtps);
 				ps.setInt(10, staffs);
 				ps.setBoolean(11, dmap);
@@ -125,9 +125,9 @@ public class Serverupdater implements Listener{
 				ps.executeUpdate();
 				ps.close();
 				
-		    }catch (SQLException e) { e.printStackTrace(); Bukkit.getConsoleSender().sendMessage("§cCan't update DB-Stats."); }
+		    }catch (SQLException e) { e.printStackTrace(); Bukkit.getConsoleSender().sendMessage("Â§cCan't update DB-Stats."); }
 		}else {
-			Bukkit.getConsoleSender().sendMessage("§cDB is not connected.");
+			Bukkit.getConsoleSender().sendMessage("Â§cDB is not connected.");
 		}
 		Serverrestarter();
 	}

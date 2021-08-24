@@ -17,6 +17,7 @@ import at.newt.command.MoneyAPI;
 import at.newt.command.Pinfo;
 import at.newt.event.JoinQuitEvents;
 import at.newt.event.ScoreboardCLS;
+import at.newt.event.ServerSigns;
 import at.newt.mysql.lpb.MySQL;
 
 public class Manager {
@@ -48,6 +49,7 @@ public class Manager {
 		pl.registerEvents(new Serverupdater(), Main.instance);
 		pl.registerEvents(new BuildClass(), Main.instance);
 		pl.registerEvents(new AFK_CMD(), Main.instance);
+		pl.registerEvents(new ServerSigns(Main.instance), Main.instance);
 		
 		//configs
 		File config = new File("plugins/RCGLSS/config.yml");
@@ -103,5 +105,6 @@ public class Manager {
 		APIs api = new APIs();
 		api.loadConfig();
 		api.onLoad();
+		ServerSigns.startSignScheduler(0, 20);
 	}
 }

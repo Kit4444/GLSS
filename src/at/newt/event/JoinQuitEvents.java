@@ -39,60 +39,72 @@ public class JoinQuitEvents implements Listener{
         String uuid = p.getUniqueId().toString().replace("-", "");
         YamlConfiguration cfg = YamlConfiguration.loadConfiguration(spawnfile);
         try {
-			PermissionUser pu = PermissionsEx.getUser(p);
+			PermissionUser po = PermissionsEx.getUser(p);
     		PreparedStatement ps = MySQL.getConnection().prepareStatement("UPDATE redicore_userstats SET userrank = ?, rankcolor = ?, online = ?, server = ?, lastjoints = ?, lastjoinstring = ?, lastloginip = ?, isstaff = ?, username = ? WHERE uuid = ?");
-    		if(pu.inGroup("PMan")) {
-        		ps.setString(1, "Projectmanager");
-        		ps.setString(2, "#ffaa00");
-    		}else if(pu.inGroup("HumanR")) {
-    			ps.setString(1, "Projectmanager");
-        		ps.setString(2, "#aa00aa");
-        	}else if(pu.inGroup("CMan")) {
-        		ps.setString(1, "Community Manager");
-        		ps.setString(2, "#00aa00");
-        	}else if(pu.inGroup("AMan")) {
-        		ps.setString(1, "Game Moderation Manager");
-        		ps.setString(2, "#aa0000");
-        	}else if(pu.inGroup("Developer")) {
-        		ps.setString(1, "Developer");
-        		ps.setString(2, "#ff55ff");
-        	}else if(pu.inGroup("Admin")) {
-        		ps.setString(1, "Game Moderator");
-        		ps.setString(2, "#ff5555");
-        	}else if(pu.inGroup("Mod")) {
-        		ps.setString(1, "Moderator");
-        		ps.setString(2, "#55ff55");
-        	}else if(pu.inGroup("Support")) {
-        		ps.setString(1, "Support");
-        		ps.setString(2, "#5555ff");
-        	}else if(pu.inGroup("Translator")) {
-        		ps.setString(1, "Content");
-        		ps.setString(2, "#ffff55");
-        	}else if(pu.inGroup("Builder")) {
-        		ps.setString(1, "Builder");
-        		ps.setString(2, "#55ffff");
-        	}else if(pu.inGroup("RLTM")) {
-        		ps.setString(1, "Retired Legend Team Member");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("RTM")) {
-        		ps.setString(1, "Retired Team Member");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("Partner")) {
-        		ps.setString(1, "Partner");
-        		ps.setString(2, "#00aa00");
-        	}else if(pu.inGroup("Beta")) {
-        		ps.setString(1, "Beta-Tester");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("NitroBooster")) {
-        		ps.setString(1, "Nitrobooster");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("Friend")) {
-        		ps.setString(1, "Friend");
-        		ps.setString(2, "#00aaaa");
-        	}else {
-        		ps.setString(1, "Player");
-        		ps.setString(2, "#aaaaaa");
-        	}
+    		if(po.inGroup("pman")) {
+    			ps.setString(1, "Project Manager");
+    			ps.setString(2, "#5555ff");
+			}else if(po.inGroup("cman")) {
+				ps.setString(1, "Community Manager");
+    			ps.setString(2, "#00aa00");
+			}else if(po.inGroup("gmmman")) {
+				ps.setString(1, "Game Mod. Manager");
+    			ps.setString(2, "#aa0000");
+			}else if(po.inGroup("dev")) {
+				ps.setString(1, "Developer");
+    			ps.setString(2, "#aa00aa");
+			}else if(po.inGroup("hr")) {
+				ps.setString(1, "Human Resources");
+    			ps.setString(2, "#ffaa00");
+			}else if(po.inGroup("cm")) {
+				ps.setString(1, "Community Moderator");
+    			ps.setString(2, "#55ff55");
+			}else if(po.inGroup("ct")) {
+				ps.setString(1, "Content Team");
+    			ps.setString(2, "#0000aa");
+			}else if(po.inGroup("st")) {
+				ps.setString(1, "Support Team");
+    			ps.setString(2, "#ffff55");
+			}else if(po.inGroup("bd")) {
+				ps.setString(1, "Builder");
+    			ps.setString(2, "#55ffff");
+			}else if(po.inGroup("gm")) {
+				ps.setString(1, "Game Moderator");
+    			ps.setString(2, "#ff5555");
+			}else if(po.inGroup("aot")) {
+				ps.setString(1, "Add-On Team");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("train")) {
+				ps.setString(1, "Trainee");
+    			ps.setString(2, "#55ffff");
+			}else if(po.inGroup("rltm")) {
+				ps.setString(1, "Retired Legend");
+    			ps.setString(2, "#00aaaa");
+			}else if(po.inGroup("rtm")) {
+				ps.setString(1, "Retired Team Member");
+    			ps.setString(2, "#00aaaa");
+			}else if(po.inGroup("part")) {
+				ps.setString(1, "Partner");
+    			ps.setString(2, "#00aa00");
+			}else if(po.inGroup("fs")) {
+				ps.setString(1, "Forum Supporter");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("nb")) {
+				ps.setString(1, "Nitro Booster");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("bt")) {
+				ps.setString(1, "Beta Tester");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("friend")) {
+				ps.setString(1, "Friend");
+    			ps.setString(2, "#aaaaaa");
+			}else if(po.inGroup("default")) {
+				ps.setString(1, "Player");
+    			ps.setString(2, "#ffffff");
+			}else {
+				ps.setString(1, "unknown Role");
+				ps.setString(1, "#7c4dff");
+			}
     		ps.setBoolean(3, true);
     		ps.setString(4, api.getServerName());
     		ps.setLong(5, ts.getTime());
@@ -158,61 +170,73 @@ public class JoinQuitEvents implements Listener{
 		SimpleDateFormat time = new SimpleDateFormat("dd/MM/yy - HH:mm:ss");
         String stime = time.format(new Date());
         Timestamp ts = new Timestamp(System.currentTimeMillis());
-        PermissionUser pu = PermissionsEx.getUser(p);
+        PermissionUser po = PermissionsEx.getUser(p);
         try {
         	PreparedStatement ps = MySQL.getConnection().prepareStatement("UPDATE redicore_userstats SET userrank = ?, rankcolor = ?, lastjoints = ?, lastjoinstring = ?, lastloginip = ?, online = ? WHERE uuid = ?");
-        	if(pu.inGroup("PMan")) {
-        		ps.setString(1, "Projectmanager");
-        		ps.setString(2, "#ffaa00");
-    		}else if(pu.inGroup("HumanR")) {
-    			ps.setString(1, "Projectmanager");
-        		ps.setString(2, "#aa00aa");
-        	}else if(pu.inGroup("CMan")) {
-        		ps.setString(1, "Community Manager");
-        		ps.setString(2, "#00aa00");
-        	}else if(pu.inGroup("AMan")) {
-        		ps.setString(1, "Game Moderation Manager");
-        		ps.setString(2, "#aa0000");
-        	}else if(pu.inGroup("Developer")) {
-        		ps.setString(1, "Developer");
-        		ps.setString(2, "#ff55ff");
-        	}else if(pu.inGroup("Admin")) {
-        		ps.setString(1, "Game Moderator");
-        		ps.setString(2, "#ff5555");
-        	}else if(pu.inGroup("Mod")) {
-        		ps.setString(1, "Moderator");
-        		ps.setString(2, "#55ff55");
-        	}else if(pu.inGroup("Support")) {
-        		ps.setString(1, "Support");
-        		ps.setString(2, "#5555ff");
-        	}else if(pu.inGroup("Translator")) {
-        		ps.setString(1, "Content");
-        		ps.setString(2, "#ffff55");
-        	}else if(pu.inGroup("Builder")) {
-        		ps.setString(1, "Builder");
-        		ps.setString(2, "#55ffff");
-        	}else if(pu.inGroup("RLTM")) {
-        		ps.setString(1, "Retired Legend Team Member");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("RTM")) {
-        		ps.setString(1, "Retired Team Member");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("Partner")) {
-        		ps.setString(1, "Partner");
-        		ps.setString(2, "#00aa00");
-        	}else if(pu.inGroup("Beta")) {
-        		ps.setString(1, "Beta-Tester");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("NitroBooster")) {
-        		ps.setString(1, "Nitrobooster");
-        		ps.setString(2, "#00aaaa");
-        	}else if(pu.inGroup("Friend")) {
-        		ps.setString(1, "Friend");
-        		ps.setString(2, "#00aaaa");
-        	}else {
-        		ps.setString(1, "Player");
-        		ps.setString(2, "#aaaaaa");
-        	}
+        	if(po.inGroup("pman")) {
+    			ps.setString(1, "Project Manager");
+    			ps.setString(2, "#5555ff");
+			}else if(po.inGroup("cman")) {
+				ps.setString(1, "Community Manager");
+    			ps.setString(2, "#00aa00");
+			}else if(po.inGroup("gmmman")) {
+				ps.setString(1, "Game Mod. Manager");
+    			ps.setString(2, "#aa0000");
+			}else if(po.inGroup("dev")) {
+				ps.setString(1, "Developer");
+    			ps.setString(2, "#aa00aa");
+			}else if(po.inGroup("hr")) {
+				ps.setString(1, "Human Resources");
+    			ps.setString(2, "#ffaa00");
+			}else if(po.inGroup("cm")) {
+				ps.setString(1, "Community Moderator");
+    			ps.setString(2, "#55ff55");
+			}else if(po.inGroup("ct")) {
+				ps.setString(1, "Content Team");
+    			ps.setString(2, "#0000aa");
+			}else if(po.inGroup("st")) {
+				ps.setString(1, "Support Team");
+    			ps.setString(2, "#ffff55");
+			}else if(po.inGroup("bd")) {
+				ps.setString(1, "Builder");
+    			ps.setString(2, "#55ffff");
+			}else if(po.inGroup("gm")) {
+				ps.setString(1, "Game Moderator");
+    			ps.setString(2, "#ff5555");
+			}else if(po.inGroup("aot")) {
+				ps.setString(1, "Add-On Team");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("train")) {
+				ps.setString(1, "Trainee");
+    			ps.setString(2, "#55ffff");
+			}else if(po.inGroup("rltm")) {
+				ps.setString(1, "Retired Legend");
+    			ps.setString(2, "#00aaaa");
+			}else if(po.inGroup("rtm")) {
+				ps.setString(1, "Retired Team Member");
+    			ps.setString(2, "#00aaaa");
+			}else if(po.inGroup("part")) {
+				ps.setString(1, "Partner");
+    			ps.setString(2, "#00aa00");
+			}else if(po.inGroup("fs")) {
+				ps.setString(1, "Forum Supporter");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("nb")) {
+				ps.setString(1, "Nitro Booster");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("bt")) {
+				ps.setString(1, "Beta Tester");
+    			ps.setString(2, "#ff55ff");
+			}else if(po.inGroup("friend")) {
+				ps.setString(1, "Friend");
+    			ps.setString(2, "#aaaaaa");
+			}else if(po.inGroup("default")) {
+				ps.setString(1, "Player");
+    			ps.setString(2, "#ffffff");
+			}else {
+				ps.setString(1, "unknown Role");
+				ps.setString(1, "#7c4dff");
+			}
         	ps.setLong(3, ts.getTime());
         	ps.setString(4, stime);
         	ps.setString(5, p.getAddress().getHostString());

@@ -29,7 +29,7 @@ public class CMD_SetID_SetPf implements CommandExecutor{
 			APIs api = new APIs();
 			if(cmd.getName().equalsIgnoreCase("setid")) {
 				if(args.length == 0) {
-					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ง7/setid <Player> <ID>");
+					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ยง7/setid <Player> <ID>");
 				}else if(args.length >= 1 && args.length <= 2) {
 					if(p.hasPermission("mlps.setID")) {
 						Player p2 = Bukkit.getPlayerExact(args[0]);
@@ -95,11 +95,11 @@ public class CMD_SetID_SetPf implements CommandExecutor{
 						api.noPerm(p);
 					}
 				}else {
-					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ง7/setid <Player> <ID>");
+					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ยง7/setid <Player> <ID>");
 				}
 			}else if(cmd.getName().equalsIgnoreCase("setpf")) {
 				if(args.length == 0) {
-					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ง7 /setpf <Player> <api>");
+					p.sendMessage(api.prefix("main") + api.returnStringReady(p, "usage") + "ยง7 /setpf <Player> <api>");
 				}else if(args.length >= 1) {
 					if(p.hasPermission("mlps.setPF")) {
 						StringBuilder sb = new StringBuilder();
@@ -128,7 +128,7 @@ public class CMD_SetID_SetPf implements CommandExecutor{
 									try {
 										PreparedStatement ps = MySQL.getConnection().prepareStatement("UPDATE redicore_userstats SET userprefix = ?, userprefix_ncc = ? WHERE uuid = ?");
 										ps.setString(1, prefix);
-										ps.setString(2, prefix.replace("งa", "").replace("งb", "").replace("งc", "").replace("งd", "").replace("งe", "").replace("งf", "").replace("ง1", "").replace("ง2", "").replace("ง3", "").replace("ง4", "").replace("ง5", "").replace("ง6", "").replace("ง7", "").replace("ง8", "").replace("ง9", "").replace("ง0", ""));
+										ps.setString(2, prefix.replace("ยงa", "").replace("ยงb", "").replace("ยงc", "").replace("ยงd", "").replace("ยงe", "").replace("ยงf", "").replace("ยง1", "").replace("ยง2", "").replace("ยง3", "").replace("ยง4", "").replace("ยง5", "").replace("ยง6", "").replace("ยง7", "").replace("ยง8", "").replace("ยง9", "").replace("ยง0", ""));
 										ps.setString(3, uuid2);
 										ps.executeUpdate();
 										ps.close();

@@ -50,7 +50,7 @@ public class LogSystem implements CommandExecutor{
 				}
 			}else if(cmd.getName().equalsIgnoreCase("tg") || cmd.getName().equalsIgnoreCase("togglegroup")) {
 				PermissionUser po = PermissionsEx.getUser(p);
-				if(po.inGroup("Patron") || po.inGroup("Beta") || po.inGroup("Mod") || po.inGroup("Support") || po.inGroup("Builder") || po.inGroup("NitroBooster") || po.inGroup("Friend") || po.inGroup("RetiredLegend") || po.inGroup("RTM")) {
+				if(po.inGroup("st") || po.inGroup("bd") || po.inGroup("rltm") || po.inGroup("rtm") || po.inGroup("aot") || po.inGroup("part") || po.inGroup("cm") || po.inGroup("fs") || po.inGroup("ct") || po.inGroup("bt") || po.inGroup("nb") || po.inGroup("friend") || po.inGroup("train")) {
 					if(retStatus(uuid)) {
 						updateStatus(uuid, false);
 						api.sendMSGReady(p, "cmd.tg.invisible");

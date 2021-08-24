@@ -109,15 +109,15 @@ public class APIs {
 		String string = "";
 		if(lang.equalsIgnoreCase("en-uk")) {
 			if(langCache_EN.containsKey(path)) {
-				string = langCache_EN.get(path).replace("&", "§");
+				string = langCache_EN.get(path).replace("&", "Â§");
 			}else {
-				string = "§cThis path doesn't exists.";
+				string = "Â§cThis path doesn't exists.";
 			}
 		}else if(lang.equalsIgnoreCase("de-de")) {
 			if(langCache_DE.containsKey(path)) {
-				string = langCache_DE.get(path).replace("&", "§");
+				string = langCache_DE.get(path).replace("&", "Â§");
 			}else {
-				string = "§cDieser Pfad existiert nicht.";
+				string = "Â§cDieser Pfad existiert nicht.";
 			}
 		}
 		return string;
@@ -233,7 +233,7 @@ public static HashMap<String, String> prefix = new HashMap<>();
 		ArrayList<String> lore = new ArrayList<>();
 		ItemStack item = new ItemStack(mat, avg);
 		ItemMeta mitem = item.getItemMeta();
-		lore.add("§aOnline§7: " + online);
+		lore.add("Â§aOnlineÂ§7: " + online);
 		mitem.setLore(lore);
 		mitem.setDisplayName(dpname);
 		item.setItemMeta(mitem);
@@ -248,16 +248,16 @@ public static HashMap<String, String> prefix = new HashMap<>();
 		boolean locked = getData(servername, "locked");
 		boolean monitor = getData(servername, "monitoring");
 		if(online){
-			lore.add("§7Online: §ayes");
-			lore.add("§7Online: §a" + getPlayers(servername) + " §7Players");
+			lore.add("Â§7Online: Â§ayes");
+			lore.add("Â§7Online: Â§a" + getPlayers(servername) + " Â§7Players");
 		}else {
-			lore.add("§7Online: §cno");
+			lore.add("Â§7Online: Â§cno");
 		}
 		if(locked) {
-			lore.add("§7Locked: §cyes");
+			lore.add("Â§7Locked: Â§cyes");
 		}
 		if(monitor) {
-			lore.add("§7Monitoring: §cyes");
+			lore.add("Â§7Monitoring: Â§cyes");
 		}
 		mitem.setLore(lore);
 		mitem.setDisplayName(dpname);

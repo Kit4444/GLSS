@@ -1,7 +1,7 @@
 name: GLSS
 main: at.newt.main.Main
 author: Newt
-version: 20210501_0002-0001a
+version: 20210722_0002-0010b
 api-version: 1.16
 description: This is the Core-Plugin of RediCraft.
 website: www.redicraft.eu

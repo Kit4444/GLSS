@@ -16,9 +16,9 @@ public class MySQL {
 		if(!isConnected()) {
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + db + "?autoReconnect=true", user, pw);
-				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "§aConnected successfully.");
+				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "Â§aConnected successfully.");
 			}catch (SQLException e) {
-				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "§cCouldn't connect to DB-Server. Check credentials.");
+				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "Â§cCouldn't connect to DB-Server. Check credentials.");
 			}
 		}
 	}
@@ -27,9 +27,9 @@ public class MySQL {
 		if(isConnected()) {
 			try {
 				con.close();
-				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "§aDisconnected successfully.");
+				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "Â§aDisconnected successfully.");
 			}catch (SQLException e) {
-				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "§cCouldn't disconnect from DB-Server.");
+				Bukkit.getConsoleSender().sendMessage(Main.mysqlprefix + "Â§cCouldn't disconnect from DB-Server.");
 			}
 		}
 	}

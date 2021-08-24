@@ -4,19 +4,19 @@ import org.bukkit.event.Listener;
 
 public class Navigator implements Listener{
 	
-	public static String title = "§6Navigator";
+	public static String title = "Â§6Navigator";
 	//gamesswitcher
-	static String serverswitch = "§aServer§cNavigator";
-	static String spawn = "§aSpawn";
-	static String bedwars = "§a§fBed§cWars";
-	static String gungames = "§9GunGames";
-	static String masterbuilders = "§bMaster§1Builders";
+	static String serverswitch = "Â§aServerÂ§cNavigator";
+	static String spawn = "Â§aSpawn";
+	static String bedwars = "Â§aÂ§fBedÂ§cWars";
+	static String gungames = "Â§9GunGames";
+	static String masterbuilders = "Â§bMasterÂ§1Builders";
 	//serverswitcher
-	static String skyblock = "§7Sky§2Block";
-	static String creative = "§eCreative";
-	static String survival = "§cSurvival";
-	static String towny = "§6Towny";
-	static String farmserver = "§5Farmserver";
-	static String bauserver = "§bStaffserver";
+	static String skyblock = "Â§7SkyÂ§2Block";
+	static String creative = "Â§eCreative";
+	static String survival = "Â§cSurvival";
+	static String towny = "Â§6Towny";
+	static String farmserver = "Â§5Farmserver";
+	static String bauserver = "Â§bStaffserver";
 
 }
