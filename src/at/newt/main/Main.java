@@ -27,7 +27,7 @@ public class Main extends JavaPlugin{
 	
 	public void onEnable() {
 		instance = this;
-		Bukkit.getMessenger().registerOutgoingPluginChannel(instance, "BungeeCord");
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		Manager manager = new Manager();
 		manager.init();
 		updateOnline(true);
